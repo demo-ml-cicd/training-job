@@ -37,9 +37,9 @@ jobs:
           # Strip "v" prefix from tag name
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "$default-branch" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
+          [ "$VERSION" == main ] && VERSION=latest
+
+          echo $VERSION
 
           docker tag $IMAGE_NAME $IMAGE_NAME:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker push $IMAGE_NAME:$VERSION
