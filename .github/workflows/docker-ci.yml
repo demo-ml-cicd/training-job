@@ -3,12 +3,12 @@ name: docker-ci
 on:
   push:
     branches:
-      - $default-branch
+      - main
     tags:
       - 'v*'
   pull_request:
     branches:
-      - $default-branch
+      - main
 
 env:
   IMAGE_NAME: mikhailmar/training-job
