@@ -31,7 +31,7 @@ def train_job(dataset_path: str, output_path: str, s3_bucket: str):
     local_model_path = "model.pkl"
     serialize_model(model, local_model_path)
 
-    upload_data_to_s3(s3_bucket, local_path, output_path)
+    upload_data_to_s3(s3_bucket, local_model_path, output_path)
 
 
 if __name__ == '__main__':
