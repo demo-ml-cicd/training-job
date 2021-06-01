@@ -27,7 +27,7 @@ def train_job(dataset_path: str, output_path: str, s3_bucket: str):
     train_df = data.drop(["target"], 1)
     target = data["target"]
 
-    model = train_model(train_df, target, "RandomForestRegressor")
+    model = train_model(train_df, target, "RandomForestClassifier")
     local_model_path = "model.pkl"
     serialize_model(model, local_model_path)
 
